@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // 현재 경로에서 prefix 추출 (e.g., /samyangkikong/)
   const prefix = window.location.pathname.includes("/samyangkikong/")
     ? "/samyangkikong/"
     : "/";
@@ -17,4 +16,15 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("footer").innerHTML = html;
     })
     .catch((err) => console.error("푸터 로딩 실패:", err));
+
+  // ✅ Breadcrumb 생성
+  const breadcrumb = document.getElementById("breadcrumb");
+  const path = window.location.pathname;
+
+  breadcrumb.innerHTML = `
+    <li class="breadcrumb-item"><a href="${prefix}">홈</a></li>
+    <li class="breadcrumb-item active" aria-current="page">
+      ${path.endsWith("products.html") ? "제품소개" : "페이지"}
+    </li>
+  `;
 });
