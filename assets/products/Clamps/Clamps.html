@@ -10,6 +10,7 @@
   <script>
     const isLocal = location.hostname.includes('localhost') || location.hostname.includes('127.0.0.1');
     const basePath = isLocal ? '/' : '/samyangkikong';
+    const rootPath = location.pathname.split("/").slice(0, -1).map(() => "..").join("/");
   </script>
   <script src="../../js/common.js"></script>
   <style>
