@@ -7,19 +7,27 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((res) => res.text())
     .then((html) => {
       document.getElementById("header").innerHTML = html;
-    })
-    .catch((err) => console.error("헤더 로딩 실패:", err));
+
+      // ✅ 로고 이미지와 링크 설정
+      const logoImg = document.getElementById("site-logo");
+      const logoLink = document.getElementById("logo-link");
+      if (logoImg) logoImg.src = `${prefix}assets/images/SYlogo.png`;
+      if (logoLink) logoLink.href = `${prefix}index.html`; // 홈으로 이동
+
+      // ✅ 메뉴 링크 경로 설정
+      document.querySelectorAll(".menu-link").forEach((el) => {
+        const page = el.getAttribute("data-page");
+        el.setAttribute("href", `${prefix}${page}`);
+      });
+    });
 
   fetch(`${prefix}footer.html`)
     .then((res) => res.text())
     .then((html) => {
       document.getElementById("footer").innerHTML = html;
-    })
-    .catch((err) => console.error("푸터 로딩 실패:", err));
+    });
 
-  // ✅ 브레드크럼 링크 수정 (로컬/웹 모두 대응)
+  // ✅ 브레드크럼 홈 경로 보정
   const homeLink = document.getElementById("breadcrumb-home");
-  if (homeLink) {
-    homeLink.setAttribute("href", prefix);
-  }
+  if (homeLink) homeLink.setAttribute("href", prefix);
 });
