@@ -1,10 +1,9 @@
 // common.js
 
-const basePath =
+const isLocal =
   location.hostname.includes("localhost") ||
-  location.hostname.includes("127.0.0.1")
-    ? ""
-    : "/samyangkikong";
+  location.hostname.includes("127.0.0.1");
+const basePath = isLocal ? "/" : "/samyangkikong";
 const rootPath = location.pathname
   .split("/")
   .slice(0, -1)
@@ -18,12 +17,12 @@ fetch(`${rootPath}/header.html`)
     document.getElementById("header").innerHTML = html;
 
     const logo = document.querySelector("#header a.navbar-brand");
-    if (logo) logo.setAttribute("href", `${basePath}/index.html`);
+    if (logo) logo.setAttribute("href", `${basePath}index.html`);
 
     const logoImg = logo?.querySelector("img");
     if (logoImg && logoImg.getAttribute("src").startsWith("./")) {
       const normalized = logoImg.getAttribute("src").replace(/^\.\//, "");
-      logoImg.setAttribute("src", `${basePath}/${normalized}`);
+      logoImg.setAttribute("src", `${basePath}${normalized}`);
     }
   });
 
@@ -40,8 +39,8 @@ if (breadcrumbList) {
   const pageTitle =
     document.querySelector("h1")?.textContent.trim() || "현재 위치";
   breadcrumbList.innerHTML = `
-    <li class="breadcrumb-item"><a href="${basePath}/index.html">홈</a></li>
-    <li class="breadcrumb-item"><a href="${basePath}/products.html">제품소개</a></li>
+    <li class="breadcrumb-item"><a href="${basePath}index.html">홈</a></li>
+    <li class="breadcrumb-item"><a href="${basePath}products.html">제품소개</a></li>
     <li class="breadcrumb-item active" aria-current="page">${pageTitle}</li>
   `;
 }
