@@ -17,14 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch((err) => console.error("푸터 로딩 실패:", err));
 
-  // ✅ Breadcrumb 생성
-  const breadcrumb = document.getElementById("breadcrumb");
-  const path = window.location.pathname;
-
-  breadcrumb.innerHTML = `
-    <li class="breadcrumb-item"><a href="${prefix}">홈</a></li>
-    <li class="breadcrumb-item active" aria-current="page">
-      ${path.endsWith("products.html") ? "제품소개" : "페이지"}
-    </li>
-  `;
+  // ✅ 브레드크럼 링크 수정 (로컬/웹 모두 대응)
+  const homeLink = document.getElementById("breadcrumb-home");
+  if (homeLink) {
+    homeLink.setAttribute("href", prefix);
+  }
 });
