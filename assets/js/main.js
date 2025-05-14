@@ -1,43 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // 1) 환경 판별 & prefix 결정
   const isGithub = location.hostname.includes("github.io");
   const prefix = isGithub ? "/samyangkikong/" : "/";
 
-  // <base> 동적 삽입으로 경로 단순화
+  // 2) <base> 태그를 head 최상단에 삽입
   document.head.insertAdjacentHTML("afterbegin", `<base href="${prefix}">`);
 
-  // 헤더 로딩 및 링크 보정
-  fetch(`${prefix}header.html`)
-    .then((res) => res.text())
-    .then((html) => {
-      document.getElementById("header").innerHTML = html;
-      const logo = document.getElementById("site-logo");
-      if (logo) logo.src = `${prefix}assets/images/SYlogo.png`;
+  // 3) header.html / footer.html 불러오기
+  const loadInclude = (id, file) => {
+    fetch(`${prefix}${file}`)
+      .then((res) => {
+        if (!res.ok) throw new Error(res.statusText);
+        return res.text();
+      })
+      .then((html) => (document.getElementById(id).innerHTML = html))
+      .catch((err) => console.error(`${file} 로딩 실패:`, err));
+  };
+  loadInclude("header", "header.html");
+  loadInclude("footer", "footer.html");
 
-      const logoLink = document.getElementById("logo-link");
-      if (logoLink) logoLink.href = `${prefix}index.html`;
-
-      document.querySelectorAll(".menu-link").forEach((el) => {
-        const page = el.getAttribute("data-page");
-        el.setAttribute("href", `${prefix}${page}`);
-      });
-    })
-    .catch((err) => console.error("헤더 로딩 실패:", err));
-
-  // 푸터 로딩
-  fetch(`${prefix}footer.html`)
-    .then((res) => res.text())
-    .then((html) => {
-      document.getElementById("footer").innerHTML = html;
-    })
-    .catch((err) => console.error("푸터 로딩 실패:", err));
-
-  // 홈 링크 보정
-  const homeLink = document.getElementById("breadcrumb-home");
-  if (homeLink) homeLink.href = prefix;
-
-  // 이미지 lazy 로딩 보정
+  // 4) Lazy-loading 이미지 처리 (data-src → src)
   document.querySelectorAll("img.lazy-img").forEach((img) => {
-    const path = img.getAttribute("data-src");
-    if (path) img.setAttribute("src", `${prefix}${path}`);
+    const src = img.dataset.src;
+    if (src) img.src = src;
   });
 });
