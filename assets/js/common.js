@@ -39,9 +39,10 @@ const breadcrumbList = document.getElementById("breadcrumb-list");
 if (breadcrumbList) {
   const pageTitle =
     document.querySelector("h1")?.textContent.trim() || "현재 위치";
+  const fullBase = location.origin + basePath;
   breadcrumbList.innerHTML = `
-    <li class="breadcrumb-item"><a href="${basePath}/index.html">홈</a></li>
-    <li class="breadcrumb-item"><a href="${basePath}/products.html">제품소개</a></li>
+    <li class="breadcrumb-item"><a href="${fullBase}/index.html">홈</a></li>
+    <li class="breadcrumb-item"><a href="${fullBase}/products.html">제품소개</a></li>
     <li class="breadcrumb-item active" aria-current="page">${pageTitle}</li>
   `;
 }
