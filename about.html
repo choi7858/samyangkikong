@@ -13,18 +13,25 @@
 <body>
   <div id="header"></div>
 
+  <div class="container mt-4">
 
-  <div class="container">
+    <!-- ✅ 브레드크럼 하드코딩 -->
     <nav aria-label="breadcrumb" class="mb-3">
-    <ol class="breadcrumb" id="breadcrumb"></ol>
-  </nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="./" id="breadcrumb-home">홈</a></li>
+        <li class="breadcrumb-item active" aria-current="page">회사소개</li>
+      </ol>
+    </nav>
 
     <h2>회사소개</h2>
     <p>삼양기공사는 일본산 고품질 공구(SUPER TOOL, SUWA, CACTUS)와 내수 절단기(유광공업, 엠티엠무역)를 유통하는 전문 기업입니다. 고객 만족을 최우선으로, 신뢰와 품질을 바탕으로 성장하고 있습니다.</p>
+
     <h3>찾아오시는 길</h3>
     <p>주소: 서울 중구 충무로9길 14 길영빌딩 2층 201호 삼양기공사</p>
     <p>전화: 02-1234-5678</p>
+
     <div id="map" style="width:100%;max-width:600px;height:450px;"></div>
+
     <script>
       // 인증 실패 처리
       window.navermap_authFailure = function () {
@@ -32,28 +39,22 @@
         console.error("Naver Maps API 인증 실패: 클라이언트 ID 또는 웹 서비스 URL을 확인하세요. 오류 로그:", window.event || {});
       };
 
-      // 지도 초기화 함수
+      // 지도 초기화
       function initMap() {
         if (!window.naver || !naver.maps) {
           document.getElementById('map').innerHTML = '<p>네이버 지도 API 로드 실패. 콘솔을 확인하세요.</p>';
           console.error("Naver Maps API 로드 실패: naver 객체가 정의되지 않음.");
           return;
         }
-        var mapOptions = {
-          center: new naver.maps.LatLng(37.5671152, 126.9916127), // 서울 중구 충무로9길 14
-          zoom: 15
-        };
-        var map = new naver.maps.Map('map', mapOptions);
-        // 마커 추가
-        var marker = new naver.maps.Marker({
-          position: new naver.maps.LatLng(37.5671152, 126.9916127),
-          map: map,
-          title: "삼양기공사"
-        });
+        const position = new naver.maps.LatLng(37.5671152, 126.9916127);
+        const map = new naver.maps.Map('map', { center: position, zoom: 15 });
+        new naver.maps.Marker({ position, map, title: "삼양기공사" });
       }
     </script>
   </div>
+
   <div id="footer"></div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./assets/js/main.js"></script>
 </body>
