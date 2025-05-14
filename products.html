@@ -3,81 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="삼양기공사 클램프 제품소개, 고품질 공구 유통">
-  <title>클램프 - 삼양기공사</title>
+  <meta name="description" content="삼양기공사 클램프 및 다양한 공구 제품소개, 고품질 공구 유통">
+  <title>제품소개 - 삼양기공사</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .category-item-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      height: 100%;
+    }
+    .category-item-link .category-item {
+        width: 100%;
+        height: 100%;
+    }
+  </style>
 </head>
 <body>
   <div id="header"></div>
+
   <nav id="breadcrumbs" class="container mt-3">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="index.html">홈</a></li>
-      <li class="breadcrumb-item"><a href="products.html">제품소개</a></li>
-      <li class="breadcrumb-item active" aria-current="page">클램프</li>
+      <li class="breadcrumb-item"><a href="/index.html">홈</a></li>
+      <li class="breadcrumb-item active" aria-current="page">제품소개</li>
     </ol>
   </nav>
-  <div id="container" class="container mt-4">
-    <article id="contents">
-      <h1 class="h1_basic">
-        <span class="h1_basicMain">클램프</span>
-      </h1>
-      <ul class="row row-cols-1 row-cols-md-3 g-4">
-        <li class="col">
-          <div class="card h-100">
-            <img src="assets/images/clamp1.jpg" class="card-img-top" alt="클램프 1" style="height: 200px; object-fit: cover;">
-            <div class="card-body">
-              <h5 class="card-title">클램프 모델 A</h5>
-              <p class="card-text">고강도 스틸 클램프, 최대 하중 500kg.</p>
-              <a href="#" class="btn btn-primary">자세히 보기</a>
+
+  <div id="main-container" class="container mt-4">
+    <div class="row">
+      <article id="contents" class="col-md-9">
+        <h1 class="h1_basic mb-4">
+          <span class="h1_basicMain">제품 카테고리</span>
+        </h1>
+
+        <div class="product-category-container">
+            <a href="assets/products/Clamps/Clamps.html" class="category-item-link">
+              <div class="category-item">
+                  <img src="assets/images/GeneralHandTools&ToggleClamps.jpg" alt="General Hand Tools & Toggle Clamps">
+                  <div class="title">CLAMPS</div>
+              </div>
+            </a>
+
+            <div class="category-item type-steel">
+                <img src="assets/images/LiftingClampsForSteel.jpg" alt="Lifting Clamps for Steel">
+                <div class="title">LIFTING CLAMPS FOR STEEL</div>
             </div>
-          </div>
-        </li>
-        <li class="col">
-          <div class="card h-100">
-            <img src="assets/images/clamp2.jpg" class="card-img-top" alt="클램프 2" style="height: 200px; object-fit: cover;">
-            <div class="card-body">
-              <h5 class="card-title">클램프 모델 B</h5>
-              <p class="card-text">다목적 용접 클램프, 최대 하중 1톤.</p>
-              <a href="#" class="btn btn-primary">자세히 보기</a>
+
+            <div class="category-item type-steel">
+                <img src="assets/images/Cranes.jpg" alt="Cranes">
+                <div class="title">CRANES</div>
             </div>
-          </div>
-        </li>
-        <li class="col">
-          <div class="card h-100">
-            <img src="assets/images/clamp3.jpg" class="card-img-top" alt="클램프 3" style="height: 200px; object-fit: cover;">
-            <div class="card-body">
-              <h5 class="card-title">클램프 모델 C</h5>
-              <p class="card-text">경량 알루미늄 클램프, 최대 하중 300kg.</p>
-              <a href="#" class="btn btn-primary">자세히 보기</a>
+
+            <div class="category-item type-concrete">
+                <img src="assets/images/LiftingClampsForConcrete.jpg" alt="Lifting Clamps for Concrete">
+                <div class="title">LIFTING CLAMPS FOR CONCRETE</div>
             </div>
-          </div>
-        </li>
-      </ul>
-    </article>
-    <div id="side" class="col-md-3">
-      <dl class="sideNav">
-        <dt>제품 정보</dt>
-        <dd>
-          <ul>
-            <li><a href="products.html">제품 라인업</a>
-              <ul id="productsSideNav">
-                <li><a href="products.html#clamps">클램프</a></li>
-                <li><a href="#">일반 공구</a></li>
-                <li><a href="#">파이프 도구</a></li>
-                <li><a href="#">기타</a></li>
-              </ul>
-            </li>
-          </ul>
-        </dd>
-      </dl>
-      <ul class="sideBanner mt-3">
-        <li><a href="#"><img src="assets/images/banner1.jpg" alt="배너 1" style="width: 100%;"></a></li>
-        <li><a href="#"><img src="assets/images/banner2.jpg" alt="배너 2" style="width: 100%;"></a></li>
-      </ul>
-    </div>
+
+            <div class="category-item type-housing">
+                <img src="assets/images/LiftingClampsForHousing.jpg" alt="Lifting Clamps for Housing">
+                <div class="title">LIFTING CLAMPS FOR HOUSING</div>
+            </div>
+        </div>
+      </article>
+
+      </div>
   </div>
+
   <div id="footer"></div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
 </body>

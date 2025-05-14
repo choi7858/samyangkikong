@@ -1,20 +1,86 @@
+/* === Existing Styles === */
 body {
   font-family: Arial, sans-serif;
 }
+
 .navbar-brand {
   font-weight: bold;
 }
+
 .hero {
   text-align: center;
   padding: 50px 0;
 }
+
 .container {
-  padding: 40px 0;
+  padding: 40px 0; /* Note: .container might conflict if used elsewhere, adjust if needed */
 }
+
 iframe {
   width: 100%;
   max-width: 600px;
 }
+
 footer {
   margin-top: 40px;
 }
+
+/* === Added Product Category Styles === */
+
+/* 전체 컨테이너 스타일 */
+.product-category-container {
+  display: grid; /* 그리드 레이아웃 사용 */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 반응형 컬럼 */
+  gap: 20px; /* 아이템 간격 */
+  padding: 20px; /* 컨테이너 내부 여백 */
+  max-width: 1200px; /* 최대 너비 설정 (선택 사항) */
+  margin-left: auto; /* 자동 마진으로 중앙 정렬 (선택 사항) */
+  margin-right: auto;
+  /* If the existing .container class interferes, remove padding: 40px 0; from .container */
+  /* or adjust the padding here and on .container as needed */
+}
+
+/* 각 제품 카테고리 아이템 스타일 */
+.category-item {
+  border: 2px solid #007bff; /* 기본 테두리 (파란색 계열) */
+  border-radius: 8px; /* 모서리 둥글게 */
+  padding: 15px;
+  text-align: center; /* 텍스트 중앙 정렬 */
+  background-color: #f8f9fa; /* 배경색 (선택 사항) */
+  display: flex; /* Flexbox 사용하여 내부 요소 정렬 */
+  flex-direction: column; /* 세로 방향 정렬 */
+  justify-content: space-between; /* 이미지와 텍스트 공간 분배 */
+  min-height: 250px; /* 최소 높이 설정 (이미지 크기에 따라 조절) */
+  box-sizing: border-box; /* 패딩과 테두리를 너비/높이에 포함 */
+}
+
+/* 카테고리 아이템 이미지 스타일 */
+.category-item img {
+  max-width: 100%; /* 이미지 너비가 부모 요소를 넘지 않도록 */
+  height: auto; /* 이미지 비율 유지 */
+  max-height: 150px; /* 이미지 최대 높이 제한 (조절 가능) */
+  object-fit: contain; /* 이미지가 잘리지 않고 비율 유지하며 채움 */
+  margin-bottom: 15px; /* 이미지 아래 여백 */
+  display: block; /* 이미지를 블록 요소로 만들어 중앙 정렬 용이 */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 카테고리 아이템 제목 스타일 */
+.category-item .title {
+  font-weight: bold;
+  color: #333;
+  margin-top: auto; /* 텍스트를 아래쪽으로 밀착 */
+}
+
+/* 테두리 색상 변형 (원본 이미지 참고) */
+.category-item.type-steel {
+  border-color: #fd7e14; /* 주황색 계열 */
+}
+.category-item.type-concrete {
+  border-color: #8a2be2; /* 보라색 계열 (예시) */
+}
+.category-item.type-housing {
+  border-color: #6f42c1; /* 다른 보라색 계열 (예시) */
+}
+/* 필요하다면 다른 타입에 대한 테두리 색상 추가 */

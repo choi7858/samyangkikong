@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Super Setter 상세 페이지 - 삼양기공사" />
+  <title>Super Setter - 삼양기공사</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .product-title {
+      border-left: 5px solid #2c4ea0;
+      padding-left: 10px;
+      font-weight: bold;
+      font-size: 1.25rem;
+    }
+    .product-code {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #2c4ea0;
+    }
+    .features {
+      padding-left: 0.9rem; /* Increased by 20% from 0.5rem */
+      padding-right: 0.9rem; /* Added to match left padding */
+    }
+    .features ul {
+      padding-left: 0.5rem;
+    }
+    .features li {
+      margin-bottom: 0.5rem;
+    }
+    .btn-catalogue {
+      background-color: #2c4ea0;
+      color: white;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 0;
+    }
+    .thumb-img {
+      border: 1px solid #ccc;
+      margin-top: 0.5rem;
+      width: 60px;
+    }
+    .bottom-images img {
+      max-height: 250px;
+    }
+    table th {
+      background-color: #f4f8fc;
+      width: 30%;
+    }
+    table td {
+      background-color: #f9fbfd;
+    }
+    .product-main-image {
+      max-height: 280px;
+      width: auto;
+    }
+    .container-narrow {
+      max-width: 960px;
+      margin: 0 auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+<nav id="breadcrumbs" class="container mt-3">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/index.html">홈</a></li>
+      <li class="breadcrumb-item"><a href="/products.html">제품소개</a></li>
+      <li class="breadcrumb-item"><a href="/assets/products/Clamps/Clamps.html">CLAMPS</a></li>
+      <li class="breadcrumb-item active" aria-current="page">SUPER SETTER</li>
+    </ol>
+  </nav>
+  <main class="container-narrow py-5">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="product-title">SUPER SETTER</div>
+        <div class="product-code mb-3">FCW210 / FCW410 / 415 / 420</div>
+        <div class="d-flex flex-column align-items-center align-items-md-start">
+          <img src="/assets/images/supersetter-main.png" class="img-fluid product-main-image" alt="Super Setter">
+          <img src="/assets/images/supersetter-main.png" class="thumb-img mt-2" alt="thumb">
+        </div>
+      </div>
+      <div class="col-md-6 features">
+        <h5 class="fw-bold">Features</h5>
+        <ul>
+          <li>Square pipe is strong and lightweight using high tensile steel (STKT590).</li>
+          <li>Easy and flexible for temporary stabilizing of welded, steel structures, bridges and civil engineering work.</li>
+          <li>Optimal for assembling temporary structures and framing at civil engineering and construction sites.</li>
+          <li>Optimal for tightening and holding work, and also for expanding and supporting work.</li>
+          <li>Full set is available: FCW4000.</li>
+          <li>FCW210 is for light operation.</li>
+        </ul>
+        <a href="https://www.supertool.co.jp/english/support/catalog_download.php" class="btn btn-catalogue" target="_blank">View Catalogue</a>
+      </div>
+    </div>
+
+    <div class="row bottom-images mt-5 bg-light p-4">
+      <div class="col-md-6 text-center mb-3 mb-md-0">
+        <img src="/assets/images/supersetter-use1.png" class="img-fluid" alt="Super Setter on large structure">
+        <div class="text-muted mt-2">Super Setter on large structure</div>
+      </div>
+      <div class="col-md-6 text-center">
+        <img src="/assets/images/supersetter-use2.png" class="img-fluid" alt="Super Setter clamping frame">
+        <div class="text-muted mt-2">Super Setter clamping frame</div>
+      </div>
+    </div>
+
+    <h5 class="mt-5 fw-bold">Specifications</h5>
+    <table class="table mt-3">
+      <tbody>
+        <tr>
+          <th>Material</th>
+          <td>Special Alloy Steel</td>
+        </tr>
+        <tr>
+          <th>Finish</th>
+          <td>Nickel Plate</td>
+        </tr>
+        <tr>
+          <th>Product Specifications</th>
+          <td>FCW210: Clamp range 0~700mm</td>
+        </tr>
+        <tr>
+          <th>Product Specifications</th>
+          <td>FCW410 / 415 / 420: Clamp range 0~750mm</td>
+        </tr>
+        <tr>
+          <th>Product Specifications</th>
+          <td>FCW210 Depth: 100mm</td>
+        </tr>
+        <tr>
+          <th>Product Specifications</th>
+          <td>FCW410 / 415 / 420 Depth: 100 / 150 / 200</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    fetch('/header.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('header').innerHTML = html);
+
+    fetch('/footer.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('footer').innerHTML = html);
+  </script>
+</body>
+</html>
