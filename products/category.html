@@ -3,10 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function() {
+      const isGithub = location.hostname.includes('github.io');
+      const prefix   = isGithub ? '/samyangkikong/' : '/';
+      const baseEl   = document.createElement('base');
+      baseEl.href    = prefix;
+      document.head.appendChild(baseEl);
+    })();
+  </script>
   <meta name="description" content="삼양기공사 클램프 및 다양한 공구 제품소개, 고품질 공구 유통">
   <title>제품소개 - 삼양기공사</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
   <style>
     .category-item-link {
       text-decoration: none;
@@ -74,7 +83,8 @@
 
   <div id="footer"></div>
 
-  <script src="../../assets/js/main.js"></script>
+  <script src="../assets/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
 </body>
 </html>
